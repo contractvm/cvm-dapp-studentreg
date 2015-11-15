@@ -6,6 +6,7 @@ from libcontractvm import Wallet, WalletNode, ConsensusManager
 from studentreg import StudentRegManager
 import sys
 import config
+import time
 
 consMan = ConsensusManager.ConsensusManager ()
 consMan.bootstrap ("http://127.0.0.1:8181")
@@ -33,9 +34,12 @@ def register ():
 		print ('Error.')
 	
 def getlist ():
-	v = srMan.getList ()
-	for x in v:
-		print (x['studentid'],'\t',x['lecture'],'\t',x['comment'])
+	while True:
+		print ('List:')
+		v = srMan.getList ()
+		for x in v:
+			print ('\t',x['studentid'],'\t',x['lecture'],'\t',x['comment'])
+		time.sleep (5)
 
 if __name__ == "__main__":
 	if len (sys.argv) > 1:
