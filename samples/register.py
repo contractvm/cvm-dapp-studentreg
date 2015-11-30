@@ -10,7 +10,7 @@ import time
 consMan = ConsensusManager.ConsensusManager ()
 consMan.bootstrap ("http://127.0.0.1:8181")
 
-wallet = WalletChainSo.WalletChainSo (wallet_file='test.wallet')
+wallet = WalletExplorer.WalletExplorer (wallet_file='test.wallet')
 srMan = StudentRegManager.StudentRegManager (consMan, wallet=wallet)
 
 sid = input ('Insert your student id: ')
